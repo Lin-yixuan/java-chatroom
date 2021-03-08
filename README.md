@@ -14,17 +14,19 @@
     * 可查詢即時新聞
 
 > 開發工具：**eclipse**
+> 
 > 開發語言：**Java**
+> 
 > 使用技術：GUI、Thread、Socket、URL Connection
 
 ## 成果展示
-![](/img/demo1.1.jpg)
+<img src="/img/demo1.1.jpg" width="60%" height="60%" />
 
-![](/img/demo1.2.jpg)
+<img src="/img/demo1.2.jpg" width="60%" height="60%" />
 
-![](/img/demo1.3.jpg)
+<img src="/img/demo1.3.jpg" width="60%" height="60%" />
 
-![](/img/demo1.4.jpg)
+<img src="/img/demo1.4.jpg" width="60%" height="60%" />
 
 ## 資料來源
 - 一週天氣：[PChome氣象](http://news.pchome.com.tw/weather/taiwan)
