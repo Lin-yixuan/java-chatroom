@@ -6,7 +6,7 @@
 
     * 可自訂使用者暱稱
     * 可顯示聊天室成員加入/離開訊息
-    * 可使用按鈕傳送訊息
+    * 可使用按鈕/Enter傳送訊息
 * 資料查詢
 
     * 可查詢某縣市未來一週天氣
@@ -26,7 +26,7 @@
 
 <img src="/img/demo1.3.jpg" width="60%" height="60%" />
 
-<img src="/img/demo1.4.jpg" width="60%" height="60%" />
+<img src="/img/demo1.4.jpg" width="70%" height="70%" />
 
 ## 資料來源
 - 一週天氣：[PChome氣象](http://news.pchome.com.tw/weather/taiwan)
