@@ -160,7 +160,7 @@ public class Connection extends Thread {
 			responseMessage = "　- 查詢某縣市未來一週天氣，請輸入[weather@欲查詢縣市]\r\n" +
 							  "　- 查詢某縣市今日空氣品質，請輸入[air@欲查詢縣市]\r\n" +
 							  "　- 查詢即時新聞，請輸入[news]\r\n" +
-							  "　範例：輸入「weather#臺北市」即可查詢臺北市未來一週的天氣";
+							  "　範例：輸入「weather@臺北市」即可查詢臺北市未來一週的天氣";
 			break;
 			
 		case "WEATHER": //查詢未來一週天氣　(資料來源：PChome新聞　http://news.pchome.com.tw/weather/taiwan)

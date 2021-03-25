@@ -1,11 +1,16 @@
 package client;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,21 +24,22 @@ import javax.swing.border.EmptyBorder;
 
 public class ClientWindow extends JFrame {
 	
-	/* ┌───────────────────────┐
-	 * │　　           TopPanel　　               │
-	 * │-----------------------│
-	 * │                       │
-	 * │     ControlPanel      │
-	 * │                       │
-	 * │-----------------------│
-	 * │　　     BottomPanel　　             │
-	 * └───────────────────────┘
+	/* ┌────────────┐
+	 * │　　    TopPanel        │
+	 * │------------------------│
+	 * │                        │
+	 * │      ControlPanel      │
+	 * │                        │
+	 * │------------------------│
+	 * │　　  BottomPanel       │
+	 * └────────────┘
 	 */
 
 	private JPanel controlPanel;
 	private JTextArea chatTextArea, queryTextArea;
 	private JTextField inputField;
-	Boolean isChatting = true; //預設為聊天室
+	private Boolean isChatting = true; //預設為聊天室
+	private Font font;
 	
 	private static Client client;
 	
@@ -63,12 +69,18 @@ public class ClientWindow extends JFrame {
 	 * Initialize
 	 */
 	private void init() {
+		font = new Font("Microsoft YaHei", Font.PLAIN, 16);
 		controlPanel = new JPanel();
 		inputField = new JTextField();
 		chatTextArea = new JTextArea();
 		queryTextArea = new JTextArea();
 		chatTextArea.setMargin(new Insets(5, 5, 5, 5));
 		queryTextArea.setMargin(new Insets(5, 5, 5, 5));
+		
+		//樣式設定
+		inputField.setFont(font);
+		chatTextArea.setFont(font);
+		queryTextArea.setFont(font);
 	}
 	
 	/**
@@ -84,6 +96,12 @@ public class ClientWindow extends JFrame {
 		chatRoomRadioBtn.setName("CHATROOM");
 		JRadioButton queryDataRadioBtn = new JRadioButton("資料查詢", false);
 		queryDataRadioBtn.setName("QUERYDATA");
+		
+		//樣式設定
+		modelLabel.setFont(font);
+		chatRoomRadioBtn.setFont(font);
+		queryDataRadioBtn.setFont(font);
+		
 		//註冊Radio Button監聽事件
 		chatRoomRadioBtn.addItemListener(new SwitchPanelRadioBtnHandler());
 		queryDataRadioBtn.addItemListener(new SwitchPanelRadioBtnHandler());
@@ -107,9 +125,18 @@ public class ClientWindow extends JFrame {
 		bottomPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		JButton sendBtn = new JButton("傳送");
+		sendBtn.setFont(font);
 		sendBtn.addActionListener(new SendBtnHandler());
-		inputField.setColumns(60);
 		
+		inputField.setColumns(45); //設定欄寬
+		//新增Key監聽事件
+		inputField.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					sendBtn.doClick();
+				}
+			}
+		});
 		bottomPanel.add(inputField, BorderLayout.CENTER);
 		bottomPanel.add(sendBtn, BorderLayout.EAST);
 		
